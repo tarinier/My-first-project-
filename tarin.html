@@ -1,0 +1,400 @@
+
+portfolio-practice (1).html
+
+100%
+<!DOCTYPE html>
+<!--
+  ============================================================================
+    MY PROFESSIONAL PORTFOLIO  —  practice file for IER students
+    Md. Ahasanul Alam · Dept. of CSE, University of Dhaka
+  ============================================================================
+
+  HOW TO USE THIS FILE
+  --------------------
+  1. Open this file in a browser (double-click) to SEE the finished portfolio.
+  2. Open the SAME file in a text editor (Notepad, or VS Code) to change it.
+  3. Look for the markers:      <!-- CHANGE THIS (n): ... -->
+     Change only the text near them. Save (Ctrl+S), then reload the browser (F5).
+  4. Change one thing → save → reload → look. That is how you learn.
+
+  You cannot permanently break anything — Ctrl+Z undoes, then save again.
+  The numbers (1), (2), (3)... go top to bottom so you can follow in order.
+  ============================================================================
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- CHANGE THIS (1): the browser TAB title -->
+  <title>Salma Akter Tarin · Educator Portfolio</title>
+
+  <!--
+    FAVICON — the little icon shown on the browser TAB, next to the title.
+    Right now it's a small coloured circle with a letter "F" drawn inside.
+    CHANGE THIS (2): to use your own initial, change the letter  F  near the end
+    of the line below (look for  >F<  ). You can also change the two colours:
+      %232f3c7e  is the navy background,  %23f96167  is not used here.
+    (%23 just means the "#" of a colour code.)
+
+    Advanced: to use a real image icon instead, put an icon file in the same
+    folder and replace this whole line with:
+      <link rel="icon" href="myicon.png">
+  -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%232f3c7e'/%3E%3Ctext x='32' y='45' font-family='Arial,sans-serif' font-size='38' font-weight='bold' fill='%23ffffff' text-anchor='middle'%3EF%3C/text%3E%3C/svg%3E">
+
+  <!-- This line loads nice fonts from Google. You can leave it as is. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Lora:ital@0;1&display=swap" rel="stylesheet">
+
+  <style>
+    /* ========================================================================
+       CSS — controls all the colours, fonts, spacing and effects.
+       The easiest things to change are the COLOURS in this first block.
+       ======================================================================== */
+    :root{
+      --navy:   #6A1B9A;   /* CHANGE THIS (3): main colour  */
+      --coral:  #B39DDB;   /* CHANGE THIS (4): accent colour */
+      --gold:   #f4b740;
+      --ink:    #1f2333;
+      --muted:  #6a7080;
+      --bg:     #f6f7fb;
+      --card:   #ffffff;
+      --line:   #e7e9f2;
+    }
+
+    *{ margin:0; padding:0; box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }           /* smooth scrolling when nav links are clicked */
+    body{
+      font-family:'Poppins',sans-serif;
+      color:var(--ink);
+      background:var(--bg);
+      line-height:1.65;
+    }
+    h1,h2,h3{ line-height:1.2; }
+    a{ text-decoration:none; color:inherit; }
+    section{ padding:80px 24px; }
+    .wrap{ max-width:1000px; margin:0 auto; }
+
+    /* ---- section heading style ---- */
+    .eyebrow{ color:var(--coral); font-weight:600; letter-spacing:2px; text-transform:uppercase; font-size:13px; }
+    .title{ font-size:34px; font-weight:700; margin:6px 0 34px; }
+    .title span{ color:var(--navy); }
+
+    /* ================= NAVIGATION BAR (sticky at top) ================= */
+    .nav{
+      position:sticky; top:0; z-index:100;
+      background:rgba(255,255,255,0.92);
+      backdrop-filter:blur(8px);
+      border-bottom:1px solid var(--line);
+      display:flex; justify-content:space-between; align-items:center;
+      padding:16px 32px;
+    }
+    .nav .logo{ font-weight:700; font-size:20px; color:var(--navy); }
+    .nav .logo b{ color:var(--coral); }
+    .nav ul{ display:flex; gap:26px; list-style:none; }
+    .nav a{ color:var(--ink); font-weight:500; font-size:15px; transition:color .2s; }
+    .nav a:hover{ color:var(--coral); }
+    @media(max-width:640px){ .nav ul{ display:none; } }   /* hide menu on small phones */
+
+    /* ================= HERO ================= */
+    .hero{
+      background:linear-gradient(135deg, #2f3c7e 0%, #4450a0 60%, #6a74c0 100%);
+      color:#fff; text-align:center;
+      padding:90px 24px;
+      position:relative; overflow:hidden;
+    }
+    .hero::after{                     /* soft decorative circle */
+      content:""; position:absolute; width:420px; height:420px; border-radius:50%;
+      background:rgba(249,97,103,.25); top:-160px; right:-120px;
+    }
+    .hero img{
+      width:150px; height:150px; border-radius:50%;
+      border:5px solid rgba(255,255,255,.85); object-fit:cover;
+      box-shadow:0 10px 30px rgba(0,0,0,.25); position:relative; z-index:1;
+    }
+    .hero h1{ font-size:44px; font-weight:700; margin:18px 0 6px; position:relative; z-index:1; }
+    .hero .role{ font-size:20px; color:var(--gold); font-weight:500; position:relative; z-index:1; }
+    .hero .tagline{ max-width:560px; margin:16px auto 0; color:#dfe3f5; position:relative; z-index:1; }
+    /* hero buttons */
+    .hero-btns{ margin-top:26px; position:relative; z-index:1; }
+    .btn{
+      display:inline-block; padding:13px 26px; border-radius:30px; font-weight:600;
+      transition:transform .2s, box-shadow .2s; margin:6px;
+    }
+    .btn:hover{ transform:translateY(-3px); box-shadow:0 8px 20px rgba(0,0,0,.2); }
+    .btn-primary{ background:var(--coral); color:#fff; }
+    .btn-ghost{ border:2px solid rgba(255,255,255,.7); color:#fff; }
+
+    /* ================= ABOUT + STATS ================= */
+    .about-grid{ display:grid; grid-template-columns:1.4fr 1fr; gap:40px; align-items:center; }
+    @media(max-width:760px){ .about-grid{ grid-template-columns:1fr; } }
+    .about p{ color:var(--muted); margin-bottom:14px; }
+    .stats{ display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+    .stat{
+      background:var(--card); border:1px solid var(--line); border-radius:14px;
+      padding:22px; text-align:center;
+    }
+    .stat .num{ font-size:32px; font-weight:700; color:var(--navy); }
+    .stat .lbl{ font-size:13px; color:var(--muted); }
+
+    /* ================= SKILLS ================= */
+    .skills{ display:flex; flex-wrap:wrap; gap:12px; }
+    .chip{
+      background:var(--card); border:1px solid var(--line); border-radius:30px;
+      padding:10px 20px; font-weight:500; color:var(--navy);
+      transition:.2s;
+    }
+    .chip:hover{ background:var(--navy); color:#fff; transform:translateY(-2px); }
+
+    /* ================= EXPERIENCE TIMELINE ================= */
+    .timeline{ border-left:3px solid var(--line); margin-left:10px; }
+    .tl-item{ position:relative; padding:0 0 34px 30px; }
+    .tl-item::before{
+      content:""; position:absolute; left:-11px; top:4px;
+      width:18px; height:18px; border-radius:50%; background:var(--coral);
+      border:4px solid var(--bg);
+    }
+    .tl-item h3{ font-size:19px; }
+    .tl-item .when{ color:var(--coral); font-size:14px; font-weight:600; }
+    .tl-item p{ color:var(--muted); margin-top:4px; }
+
+    /* ================= PROJECT CARDS ================= */
+    .cards{ display:grid; grid-template-columns:repeat(2,1fr); gap:22px; }
+    @media(max-width:760px){ .cards{ grid-template-columns:1fr; } }
+    /* Note: modern browsers show these 2-per-row; they stack on phones. */
+    .card{
+      background:var(--card); border:1px solid var(--line); border-radius:16px;
+      padding:26px; transition:transform .25s, box-shadow .25s;
+    }
+    .card:hover{ transform:translateY(-6px); box-shadow:0 16px 34px rgba(47,60,126,.12); }
+    .card .ic{
+      width:52px; height:52px; border-radius:12px; display:flex; align-items:center;
+      justify-content:center; font-size:24px; margin-bottom:14px;
+      background:linear-gradient(135deg,var(--navy),var(--coral)); color:#fff;
+    }
+    .card h3{ font-size:20px; margin-bottom:8px; }
+    .card p{ color:var(--muted); font-size:15px; margin-bottom:14px; }
+    .card .link{ color:var(--coral); font-weight:600; font-size:14px; }
+    .card .link:hover{ text-decoration:underline; }
+
+    /* ================= VIDEO ================= */
+    .video-frame{ border-radius:16px; overflow:hidden; box-shadow:0 12px 30px rgba(0,0,0,.12); }
+    .video-frame iframe{ width:100%; height:440px; border:none; display:block; }
+    @media(max-width:640px){ .video-frame iframe{ height:240px; } }
+
+    /* ================= CONTACT ================= */
+    .contact{ background:var(--navy); color:#fff; text-align:center; border-radius:24px; padding:56px 24px; }
+    .contact h2{ font-size:30px; margin-bottom:10px; }
+    .contact p{ color:#c9cef0; max-width:480px; margin:0 auto 24px; }
+    .socials{ margin-top:26px; display:flex; justify-content:center; gap:16px; flex-wrap:wrap; }
+    .socials a{
+      width:46px; height:46px; border-radius:50%; background:rgba(255,255,255,.12);
+      display:flex; align-items:center; justify-content:center; font-size:18px;
+      transition:.2s;
+    }
+    .socials a:hover{ background:var(--coral); transform:translateY(-3px); }
+
+    /* ================= FOOTER ================= */
+    .footer{ text-align:center; padding:30px; color:var(--muted); font-size:14px; }
+  </style>
+</head>
+
+<body>
+
+  <!-- ======================= NAV BAR ======================= -->
+  <nav class="nav">
+    <!-- CHANGE THIS (5): your initials / short name in the logo -->
+    <div class="logo">Salma Akter Tarin<b>.</b></div>
+    <ul>
+      <!-- These links jump to the sections below. Leave the #names as they are. -->
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- ======================= HERO ======================= -->
+  <header class="hero">
+    <!--
+      CHANGE THIS (6): YOUR PHOTO.
+      Option A (easiest, offline): put your photo in the SAME FOLDER as this file
+        and replace the long src="..." with just  src="myphoto.jpg"
+      Option B (online): upload to https://postimages.org and paste the "direct link".
+    -->
+    <img src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Crect width='300' height='300' fill='%236a74c0'/%3E%3Ccircle cx='150' cy='115' r='58' fill='%23ffd38a'/%3E%3Crect x='72' y='185' width='156' height='96' rx='26' fill='%23f96167'/%3E%3Ctext x='150' y='290' font-family='sans-serif' font-size='19' fill='%23fff' text-anchor='middle'%3Eyour photo%3C/text%3E%3C/svg%3E"
+         alt="my photo">
+
+    <!-- CHANGE THIS (7): your name -->
+    <h1>Salma Akter Tarin</h1>
+
+    <!-- CHANGE THIS (8): your role / title -->
+    <div class="role">Education Student</div>
+
+    <!-- CHANGE THIS (9): one-line tagline about you -->
+    <p class="tagline">Master's student in Education at the Institute of Education and Research, University of Dhaka, interested in language education, curriculum and educational research..</p>
+
+    <div class="hero-btns">
+      <!-- CHANGE THIS (10): put your email after mailto: (keep the word mailto:) -->
+      <a class="btn btn-primary" href="mailto:fatima@example.com">✉ Contact Me</a>
+      <!-- CHANGE THIS (11): a link to your CV, LinkedIn, or leave # for now -->
+      <a class="btn btn-ghost" href="#work">View My Work</a>
+    </div>
+  </header>
+
+  <!-- ======================= ABOUT ======================= -->
+  <section id="about" class="wrap">
+    <div class="eyebrow">Get to know me</div>
+    <h2 class="title">About <span>Me</span></h2>
+    <div class="about-grid">
+      <div class="about">
+        <!-- CHANGE THIS (12): write 2–3 sentences about yourself -->
+        <p>Hello! I'm a trainee teacher at the Institute of Education and Research, focused on early childhood education and inclusive classrooms.</p>
+        <p>I love turning difficult ideas into simple, playful lessons — using stories, visuals and hands-on activities that help every student feel confident.</p>
+      </div>
+      <!-- CHANGE THIS (13): your numbers. Edit the big number and the label under it. -->
+      <div class="stats">
+        <div class="stat"><div class="num">3+</div><div class="lbl">Years Studying Education</div></div>
+        <div class="stat"><div class="num">120</div><div class="lbl">Students Taught</div></div>
+        <div class="stat"><div class="num">15</div><div class="lbl">Lesson Plans Made</div></div>
+        <div class="stat"><div class="num">4</div><div class="lbl">Workshops Attended</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= SKILLS ======================= -->
+  <section id="skills" class="wrap">
+    <div class="eyebrow">What I'm good at</div>
+    <h2 class="title">My <span>Skills</span></h2>
+    <!--
+      CHANGE THIS (14): each <span class="chip"> is one skill.
+      Edit the words, delete one, or copy a line to add more.
+    -->
+    <div class="skills">
+      <span class="chip">Lesson Planning</span>
+      <span class="chip">Classroom Management</span>
+      <span class="chip">Curriculum Design</span>
+      <span class="chip">Child Psychology</span>
+      <span class="chip">Storytelling</span>
+      <span class="chip">Assessment &amp; Feedback</span>
+      <span class="chip">Inclusive Teaching</span>
+    </div>
+  </section>
+
+  <!-- ======================= EXPERIENCE (TIMELINE) ======================= -->
+  <section id="experience" class="wrap">
+    <div class="eyebrow">My journey</div>
+    <h2 class="title">Experience &amp; <span>Education</span></h2>
+    <!--
+      CHANGE THIS (15): each .tl-item is one entry on the timeline.
+      Copy a whole .tl-item block to add another; delete one to remove it.
+    -->
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="when">2023 – Present</div>
+        <h3>B.Ed., Institute of Education and Research</h3>
+        <p>University of Dhaka — studying curriculum, pedagogy and child development.</p>
+      </div>
+      <div class="tl-item">
+        <div class="when">2024</div>
+        <h3>Teaching Practicum</h3>
+        <p>Ran a two-week reading programme for Class 3 at a local primary school.</p>
+      </div>
+      <div class="tl-item">
+        <div class="when">2023</div>
+        <h3>Volunteer Tutor</h3>
+        <p>Taught weekend English classes to underprivileged children.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= WORK / PROJECTS ======================= -->
+  <section id="work" class="wrap">
+    <div class="eyebrow">Things I've made</div>
+    <h2 class="title">My <span>Work</span></h2>
+    <!--
+      CHANGE THIS (16): each .card is one project.
+      - Change the emoji, title and description.
+      - In the link, put a real web address inside href="..." (or leave # for now).
+      Copy a whole .card block to add more projects.
+    -->
+    <div class="cards">
+      <div class="card">
+        <div class="ic">📚</div>
+        <h3>Reading Programme</h3>
+        <p>A structured two-week plan that improved reading fluency in young learners.</p>
+        <a class="link" href="#">View details →</a>
+      </div>
+      <div class="card">
+        <div class="ic">🔬</div>
+        <h3>Research Assignment</h3>
+        <p>Studied how storytelling boosts vocabulary in early childhood education.</p>
+        <a class="link" href="#">Read summary →</a>
+      </div>
+      <div class="card">
+        <div class="ic">🎨</div>
+        <h3>Classroom Materials</h3>
+        <p>Designed colourful flashcards and worksheets for teaching the alphabet.</p>
+        <a class="link" href="#">See samples →</a>
+      </div>
+      <div class="card">
+        <div class="ic">🧩</div>
+        <h3>Learning Games</h3>
+        <p>Created simple group games that make maths practice fun and social.</p>
+        <a class="link" href="#">Learn more →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= VIDEO ======================= -->
+  <section id="video" class="wrap">
+    <div class="eyebrow">Watch</div>
+    <h2 class="title">A Video I <span>Made</span></h2>
+    <!--
+      CHANGE THIS (17): SHOW A YOUTUBE VIDEO.
+      In a YouTube link like  youtube.com/watch?v=ABC123 , copy the code after "v="
+      and put it after  /embed/  below. So watch?v=dQw4w9WgXcQ  becomes
+      src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+    -->
+    <div class="video-frame">
+      <iframe src="https://www.youtube.com/embed/Cqf9Ox2vHRc"
+              title="My video" allowfullscreen></iframe>
+    </div>
+  </section>
+
+  <!-- ======================= CONTACT ======================= -->
+  <section id="contact" class="wrap">
+    <div class="contact">
+      <h2>Let's Connect</h2>
+      <!-- CHANGE THIS (18): a friendly line inviting people to reach you -->
+      <p>I'm always happy to talk about teaching, collaboration, or new ideas in education. Feel free to reach out!</p>
+
+      <!-- CHANGE THIS (19): your email again, after mailto: -->
+      <a class="btn btn-primary" href="mailto:fatima@example.com">✉ Email Me</a>
+
+      <!--
+        CHANGE THIS (20): YOUR SOCIAL / PROFILE LINKS.
+        Put your real profile web addresses inside each href="..."
+        The letters (in, f, ✎, ▶) are just labels — you can change them too.
+        Delete any you don't use.
+      -->
+      <div class="socials">
+        <a href="https://www.linkedin.com" title="LinkedIn">in</a>
+        <a href="https://www.facebook.com" title="Facebook">S</a>
+        <a href="mailto:fatima@example.com" title="Email">✉</a>
+        <a href="https://www.youtube.com" title="YouTube">▶</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= FOOTER ======================= -->
+  <div class="footer">
+    <!-- CHANGE THIS (21): footer line -->
+    © 2025 Fatima Rahman · Built with HTML &amp; CSS at IER, University of Dhaka
+  </div>
+
+</body>
+</html>
+Displaying portfolio-practice (1).html.
